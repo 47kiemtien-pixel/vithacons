@@ -1,0 +1,102 @@
+import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+
+const Header = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        const handleScroll = () => setIsScrolled(window.scrollY > 50);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const navLinks = [
+        { name: 'TRANG CHỦ', path: '/' },
+        {
+            name: 'XÂY DỰNG VIỆT THÀNH',
+            dropdown: [
+                { name: 'DỊCH VỤ THIẾT KẾ THI CÔNG', path: '/thiet-ke-thi-cong' },
+                { name: 'NHÀ THÉP TIỀN CHẾ', path: '/nha-thep-tien-che' },
+                { name: 'XÂY DỰNG DÂN DỤNG', path: '/xay-dung-dan-dung' },
+                { name: 'THIẾT KẾ LẮP ĐẶT THANG MÁY', path: '/thang-may' },
+            ]
+        },
+        { name: 'DỰ ÁN', path: '/#projects' },
+        { name: 'QUY TRÌNH', path: '/#workflow' },
+        { name: 'LIÊN HỆ', path: '/#contact' }
+    ];
+
+    const handleLinkClick = (path) => {
+        setMobileMenuOpen(false);
+        setDropdownOpen(false);
+
+        if (path.startsWith('/#')) {
+            const id = path.substring(2);
+            if (location.pathname === '/') {
+                const el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    };
+
+    return (
+        <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+            <div className="container header-container">
+                <Link to="/" className="logo" onClick={() => handleLinkClick('/')}>
+                    VIỆT THÀNH
+                    <span>XÂY DỰNG & CƠ KHÍ</span>
+                </Link>
+
+                <nav className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
+                    {navLinks.map((link, idx) => (
+                        link.dropdown ? (
+                            <div
+                                key={idx}
+                                className={`dropdown ${dropdownOpen ? 'open' : ''}`}
+                                onMouseEnter={() => setDropdownOpen(true)}
+                                onMouseLeave={() => setDropdownOpen(false)}
+                            >
+                                <span className="nav-link dropdown-toggle" onClick={() => setDropdownOpen(!dropdownOpen)}>
+                                    {link.name} <span className="arrow">▼</span>
+                                </span>
+                                <div className="dropdown-menu">
+                                    {link.dropdown.map((sub, sIdx) => (
+                                        <Link
+                                            key={sIdx}
+                                            to={sub.path}
+                                            className="dropdown-item"
+                                            onClick={() => handleLinkClick(sub.path)}
+                                        >
+                                            {sub.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (
+                            <Link
+                                key={idx}
+                                to={link.path}
+                                className="nav-link"
+                                onClick={() => handleLinkClick(link.path)}
+                            >
+                                {link.name}
+                            </Link>
+                        )
+                    ))}
+                    <a href="tel:0972524799" className="btn btn-secondary" style={{ marginLeft: '10px' }}>
+                        ☎ 0972 524 799
+                    </a>
+                </nav>
+
+                <div className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                    {mobileMenuOpen ? '✕' : '☰'}
+                </div>
+            </div>
+        </header>
+    );
+};
+
+export default Header;
