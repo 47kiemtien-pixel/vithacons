@@ -6,14 +6,12 @@ import Projects from '../components/Projects'
 import Testimonials from '../components/Testimonials'
 import Workflow from '../components/Workflow'
 import Contact from '../components/Contact'
-import Benefits from '../components/Benefits'
 
 const Home = () => {
     return (
         <main>
             <Hero />
             <About />
-            <Benefits />
             <Services />
             <Features />
             <Projects />
