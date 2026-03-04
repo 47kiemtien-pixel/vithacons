@@ -1,8 +1,12 @@
+import avatarHung from '../assets/images/testimonials/avatar-hung.png';
+import avatarMai from '../assets/images/testimonials/avatar-mai.png';
+import avatarTuan from '../assets/images/testimonials/avatar-tuan.png';
+
 const Testimonials = () => {
     const reviews = [
-        { name: 'Ông Nguyễn Văn Hùng', role: 'GĐ Công ty May Mặc Hùng Phát', text: 'Việt Thành đã thực hiện nhà xưởng của chúng tôi rất chuyên nghiệp. Tiến độ nhanh và chất lượng thép rất đảm bảo.', avatar: 'https://i.pravatar.cc/150?u=hung' },
-        { name: 'Bà Lê Thị Mai', role: 'Chủ đầu tư Biệt Thự Dĩ An', text: 'Rất hài lòng với đội ngũ kỹ sư của Việt Thành. Họ tư vấn tận tình và giám sát thi công rất kỹ lưỡng.', avatar: 'https://i.pravatar.cc/150?u=mai' },
-        { name: 'Anh Trần Quốc Tuấn', role: 'Quản lý Showroom Auto', text: 'Giải pháp nhà thép cho showroom của Việt Thành vừa thẩm mỹ vừa giúp chúng tôi tiết kiệm chi phí vận hành.', avatar: 'https://i.pravatar.cc/150?u=tuan' }
+        { name: 'Ông Nguyễn Văn Hùng', role: 'GĐ Công ty May Mặc Hùng Phát', text: 'Việt Thành đã thực hiện nhà xưởng của chúng tôi rất chuyên nghiệp. Tiến độ nhanh và chất lượng thép rất đảm bảo.', avatar: avatarHung },
+        { name: 'Bà Lê Thị Mai', role: 'Chủ đầu tư Biệt Thự Dĩ An', text: 'Rất hài lòng với đội ngũ kỹ sư của Việt Thành. Họ tư vấn tận tình và giám sát thi công rất kỹ lưỡng.', avatar: avatarMai },
+        { name: 'Anh Trần Quốc Tuấn', role: 'Quản lý Showroom Auto', text: 'Giải pháp nhà thép cho showroom của Việt Thành vừa thẩm mỹ vừa giúp chúng tôi tiết kiệm chi phí vận hành.', avatar: avatarTuan }
     ];
 
     return (
