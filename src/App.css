@@ -2,15 +2,16 @@
    Core Variables & Reset
 ============================== */
 :root {
-  --primary: #004d31;
-  /* Vitha Cons Dark Green */
-  --primary-light: #006b44;
+  --primary: #006b44;
+  /* Vitha Cons Vibrant Green */
+  --primary-light: #008f5d;
   --secondary: #d46a2a;
   /* Terracotta Orange */
   --secondary-hover: #b55a24;
   --accent-green: #8ba846;
   /* Olive Green */
-  --dark: #1e293b;
+  --dark: #0f172a;
+  /* Deeper dark for better contrast */
   --light: #f8fafc;
   --gray: #64748b;
   --gray-light: #e2e8f0;
@@ -23,7 +24,7 @@
   --radius: 8px;
   --radius-lg: 16px;
   --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  --gradient-primary: linear-gradient(135deg, #004d31 0%, #006b44 100%);
+  --gradient-primary: linear-gradient(135deg, #006b44 0%, #004d31 100%);
 }
 
 * {
@@ -338,21 +339,24 @@ h6 {
   display: flex;
   align-items: center;
   position: relative;
-  background: linear-gradient(135deg, rgba(0, 77, 49, 0.9) 0%, rgba(30, 41, 59, 0.95) 100%),
+  background: linear-gradient(135deg, rgba(0, 107, 68, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%),
     url('./assets/images/banners/artboard-3.jpg') center/cover;
   color: var(--white);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  animation: slideUp 0.8s ease backwards;
 }
 
 .hero-content {
   max-width: 800px;
   text-align: center;
   margin: 0 auto;
-}
-
-.hero-title {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  margin-bottom: 20px;
-  animation: slideUp 0.8s ease backwards;
 }
 
 .hero-title span {

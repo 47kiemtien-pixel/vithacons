@@ -56,11 +56,11 @@ const ElevatorServices = () => {
                 />
                 <div style={{
                     position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-                    background: 'rgba(0,0,0,0.4)', display: 'flex', flexDirection: 'column',
+                    background: 'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5))', display: 'flex', flexDirection: 'column',
                     justifyContent: 'center', alignItems: 'center', color: 'white', textAlign: 'center', padding: '20px'
                 }}>
-                    <h1 style={{ fontSize: '3rem', marginBottom: '10px', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>Thang Máy Việt Thành</h1>
-                    <p style={{ fontSize: '1.2rem', maxWidth: '800px' }}>Giải pháp di chuyển thông minh cho những công trình hiện đại</p>
+                    <h1 style={{ fontSize: '3rem', marginBottom: '10px', textShadow: '0 4px 15px rgba(0,0,0,0.6)' }}>Thang Máy Việt Thành</h1>
+                    <p style={{ fontSize: '1.2rem', maxWidth: '800px', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Giải pháp di chuyển thông minh cho những công trình hiện đại</p>
                 </div>
             </section>
 
@@ -69,10 +69,10 @@ const ElevatorServices = () => {
                 <div className="grid grid-2 reveal" style={{ alignItems: 'center', gap: '40px', marginBottom: '80px' }}>
                     <div className="text-content">
                         <img src={images.logo} alt="Logo" style={{ width: '150px', marginBottom: '20px' }} />
-                        <h2 style={{ color: 'var(--primary)', marginBottom: '20px' }}>Công Nghệ Dẫn Đầu - An Toàn Tuyệt Đối</h2>
-                        <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#475569' }}>
+                        <h2 style={{ color: 'var(--primary)', marginBottom: '20px', fontSize: '2.2rem' }}>Công Nghệ Dẫn Đầu - An Toàn Tuyệt Đối</h2>
+                        <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#334155' }}>
                             Tại Việt Thành, chúng tôi không chỉ cung cấp thang máy; chúng tôi mang đến một hệ thống di chuyển
-                            <strong> an toàn, thông minh và thẩm mỹ</strong>. Với đội ngũ kỹ sư giàu kinh nghiệm, mỗi sản phẩm
+                            <strong style={{ color: 'var(--primary)' }}> an toàn, thông minh và thẩm mỹ</strong>. Với đội ngũ kỹ sư giàu kinh nghiệm, mỗi sản phẩm
                             đều được kiểm định gắt gao theo tiêu chuẩn quốc tế.
                         </p>
                         <div style={{ marginTop: '30px' }}>
