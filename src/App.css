@@ -1069,16 +1069,34 @@ h6 {
   padding: 0;
 }
 
-.social-item.phone:hover {
+.social-item.phone {
   background: var(--secondary);
 }
 
 .social-item.zalo {
-  background: #0084ff !important;
+  background: var(--primary);
 }
 
-.social-item.zalo .icon {
-  color: white;
+.social-item.facebook {
+  background: var(--primary);
+}
+
+.social-item.yellow-pages {
+  background: var(--accent-green);
+}
+
+.social-item .icon {
+  font-size: 1.2rem;
+  color: var(--white);
+  font-weight: bold;
+}
+
+.social-item:hover {
+  width: 160px;
+  border-radius: 25px;
+  justify-content: flex-start;
+  padding-left: 15px;
+  background: var(--secondary);
 }
 
 .social-item.facebook {
