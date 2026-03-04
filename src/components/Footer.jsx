@@ -15,7 +15,8 @@ const Footer = () => {
                         <div style={{ marginTop: '15px', fontSize: '0.9rem', opacity: 0.8 }}>
                             <p><strong>Giấy phép ĐKKD:</strong> 3702556996 (Cấp ngày 25/04/2017)</p>
                             <p><strong>Người đại diện:</strong> Lê Quang Khải</p>
-                            <p><strong>Trụ sở chính:</strong> Milano ML127 KĐT Ecocity Premia, P. Tân An, Đắk Lắk</p>
+                            <p><strong>Trụ sở chính:</strong> 122/118, KP. Tân Lập, P. Đông Hòa, TP. Hồ Chí Minh</p>
+                            <p><strong>Văn phòng:</strong> Milano ML127 KĐT Ecocity Premia, P. Tân An, Đắk Lắk</p>
                         </div>
                     </div>
                     <div className="footer-col">
