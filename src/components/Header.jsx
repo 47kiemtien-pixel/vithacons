@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
+import logo from '../assets/brand/logo-new.png'
+
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -46,8 +48,7 @@ const Header = () => {
         <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
             <div className="container header-container">
                 <Link to="/" className="logo" onClick={() => handleLinkClick('/')}>
-                    VIỆT THÀNH
-                    <span>XÂY DỰNG & CƠ KHÍ</span>
+                    <img src={logo} alt="Vitha Cons Logo" style={{ height: '50px', width: 'auto' }} />
                 </Link>
 
                 <nav className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>

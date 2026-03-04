@@ -2,12 +2,14 @@
    Core Variables & Reset
 ============================== */
 :root {
-  --primary: #0f4c81;
-  /* Deep Trust Blue */
-  --primary-light: #3a7db8;
-  --secondary: #e67e22;
-  /* Warning/Call to Action Orange */
-  --secondary-hover: #d35400;
+  --primary: #004d31;
+  /* Vitha Cons Dark Green */
+  --primary-light: #006b44;
+  --secondary: #d46a2a;
+  /* Terracotta Orange */
+  --secondary-hover: #b55a24;
+  --accent-green: #8ba846;
+  /* Olive Green */
   --dark: #1e293b;
   --light: #f8fafc;
   --gray: #64748b;
@@ -21,7 +23,7 @@
   --radius: 8px;
   --radius-lg: 16px;
   --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  --gradient-primary: linear-gradient(135deg, #0f4c81 0%, #1e293b 100%);
+  --gradient-primary: linear-gradient(135deg, #004d31 0%, #006b44 100%);
 }
 
 * {

@@ -1,10 +1,14 @@
+import logo from '../assets/brand/logo-new.png'
+
 const Footer = () => {
     return (
         <footer className="footer">
             <div className="container">
                 <div className="footer-top">
                     <div className="footer-col" style={{ gridColumn: 'span 2' }}>
-                        <a href="#" className="footer-logo">VIỆT THÀNH <span>CONSTRUCTION</span></a>
+                        <a href="#" className="footer-logo">
+                            <img src={logo} alt="Vitha Cons Logo" style={{ height: '60px', width: 'auto', marginBottom: '15px' }} />
+                        </a>
                         <p className="footer-desc">
                             Công Ty TNHH Cơ Khí Xây Dựng Thương Mại Việt Thành tự hào là đơn vị uy tín trong lĩnh vực thiết kế, thi công nhà tiền chế và xây dựng dân dụng. Chúng tôi cam kết chất lượng, tiến độ và giải pháp tối ưu chi phí.
                         </p>
