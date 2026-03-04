@@ -139,11 +139,11 @@ const ElevatorServices = () => {
                 </section>
 
                 {/* Workflow */}
-                <div className="safety-standards reveal" style={{
+                <div className="safety-standards reveal text-white" style={{
                     background: 'var(--dark)', color: 'white', padding: '60px 40px',
-                    borderRadius: '25px', marginBottom: '80px', boxShadow: '0 15px 30px rgba(0,0,0,0.2)'
+                    borderRadius: '25px', marginBottom: '80px', boxShadow: '0 15px 30px rgba(0,0,0,0.3)'
                 }}>
-                    <h3 className="text-center" style={{ fontSize: '2rem', marginBottom: '40px' }}>Quy Trình Lắp Đặt Chuyên Nghiệp</h3>
+                    <h3 className="text-center" style={{ fontSize: '2.5rem', marginBottom: '50px', color: 'white' }}>Quy Trình Lắp Đặt Chuyên Nghiệp</h3>
                     <div className="grid grid-4" style={{ gap: '20px' }}>
                         {[
                             { step: "01", title: "Khảo Sát Kỹ Thuật", desc: "Kiểm tra kích thước hố thang và tư vấn tải trọng phù hợp." },
@@ -151,27 +151,38 @@ const ElevatorServices = () => {
                             { step: "03", title: "Kiểm Định An Toàn", desc: "Thực hiện test tải và kiểm định bởi cơ quan nhà nước." },
                             { step: "04", title: "Bàn Giao & Bảo Trì", desc: "Hướng dẫn vận hành và bảo trì định kỳ 01 lần/tháng." }
                         ].map((item, index) => (
-                            <div key={index} style={{ padding: '20px', borderLeft: '1px solid rgba(255,255,255,0.1)' }}>
-                                <div style={{ fontSize: '40px', fontWeight: 'bold', color: 'rgba(255,255,255,0.05)', marginBottom: '-25px' }}>{item.step}</div>
-                                <h4 style={{ color: 'var(--primary)', position: 'relative', zIndex: 1 }}>{item.title}</h4>
-                                <p style={{ fontSize: '0.9rem', color: '#cbd5e1', marginTop: '10px' }}>{item.desc}</p>
+                            <div key={index} style={{ padding: '20px', borderLeft: '2px solid rgba(255,255,255,0.1)', position: 'relative' }}>
+                                <div style={{
+                                    fontSize: '60px',
+                                    fontWeight: '900',
+                                    color: 'rgba(255,255,255,0.12)',
+                                    marginBottom: '-35px',
+                                    lineHeight: 1
+                                }}>{item.step}</div>
+                                <h4 style={{ color: 'var(--secondary)', position: 'relative', zIndex: 1, fontSize: '1.3rem' }}>{item.title}</h4>
+                                <p style={{ fontSize: '1rem', color: '#e2e8f0', marginTop: '15px', lineHeight: '1.6' }}>{item.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* CTA Section */}
-                <div className="cta-box reveal" style={{
-                    background: 'var(--gradient-primary)', padding: '50px',
-                    borderRadius: '20px', textAlign: 'center', color: 'white'
+                <div className="cta-box reveal text-white" style={{
+                    background: 'var(--gradient-primary)', padding: '60px 30px',
+                    borderRadius: '25px', textAlign: 'center', color: 'white',
+                    boxShadow: '0 20px 40px rgba(0,107,68,0.3)'
                 }}>
-                    <h2 style={{ marginBottom: '15px' }}>Khởi Tạo Hành Trình Mới Với Việt Thành</h2>
-                    <p style={{ marginBottom: '30px', fontSize: '1.1rem', opacity: 0.9 }}>
+                    <h2 style={{ marginBottom: '20px', fontSize: '2.5rem', color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
+                        Khởi Tạo Hành Trình Mới Với Việt Thành
+                    </h2>
+                    <p style={{ marginBottom: '40px', fontSize: '1.2rem', opacity: 0.95, color: 'white' }}>
                         Nhận báo giá chi tiết và phương án thi công tối ưu nhất cho tòa nhà của bạn.
                     </p>
                     <a href="tel:0972524799" className="btn" style={{
-                        background: 'white', color: 'var(--primary)', fontWeight: 'bold',
-                        padding: '15px 40px', fontSize: '1.1rem', border: 'none'
+                        background: 'white', color: 'var(--primary)', fontWeight: '800',
+                        padding: '18px 50px', fontSize: '1.2rem', border: 'none',
+                        borderRadius: '50px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
+                        display: 'inline-block', transition: 'transform 0.3s ease'
                     }}>
                         Liên Hệ Ngay: 0972 524 799
                     </a>

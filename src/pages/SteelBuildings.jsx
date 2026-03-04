@@ -59,10 +59,21 @@ const SteelBuildings = () => {
                     </div>
                 </div>
 
-                <div className="cta-box reveal" style={{ background: '#f8fafc', padding: '40px', borderRadius: '15px', marginTop: '60px', textAlign: 'center', border: '1px solid #e2e8f0' }}>
-                    <h3>Việt Thành Cam Kết: Giám Sát 24/24 - Đúng Tiến Độ</h3>
-                    <p>Hãy để chúng tôi đồng hành cùng sự phát triển bền vững của doanh nghiệp bạn.</p>
-                    <a href="tel:0972524799" className="btn btn-primary">Nhận Báo Giá Nhà Thép: 0972 524 799</a>
+                <div className="cta-box reveal text-white" style={{
+                    background: 'var(--gradient-primary)',
+                    padding: '60px 40px',
+                    borderRadius: '25px',
+                    marginTop: '80px',
+                    textAlign: 'center',
+                    boxShadow: '0 20px 40px rgba(0,107,68,0.2)'
+                }}>
+                    <h2 style={{ color: 'white', marginBottom: '20px', fontSize: '2.5rem' }}>Việt Thành Cam Kết: Giám Sát 24/24 - Đúng Tiến Độ</h2>
+                    <p style={{ fontSize: '1.2rem', marginBottom: '40px', opacity: '0.95', color: 'white' }}>Hãy để chúng tôi đồng hành cùng sự phát triển bền vững của doanh nghiệp bạn.</p>
+                    <a href="tel:0972524799" className="btn" style={{
+                        background: 'white', color: 'var(--primary)', fontWeight: '800',
+                        padding: '18px 50px', fontSize: '1.2rem', border: 'none',
+                        borderRadius: '50px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
+                    }}>Nhận Báo Giá Nhà Thép: 0972 524 799</a>
                 </div>
             </div>
         </main>

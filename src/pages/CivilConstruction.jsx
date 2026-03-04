@@ -67,10 +67,22 @@ const CivilConstruction = () => {
                     </div>
                 </div>
 
-                <div className="cta-box reveal" style={{ background: 'linear-gradient(135deg, var(--primary) 0%, #1a365d 100%)', color: 'white', padding: '60px 40px', borderRadius: '20px', marginTop: '80px', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
-                    <h2 style={{ color: 'white', marginBottom: '20px' }}>Bạn Đang Lên Kế Hoạch Xây Nhà?</h2>
-                    <p style={{ fontSize: '1.1rem', marginBottom: '30px', opacity: '0.9' }}>Hãy để chúng tôi tư vấn miễn phí về vật tư và phương án thi công phù hợp nhất với ngân sách của bạn.</p>
-                    <a href="#contact" className="btn btn-secondary btn-lg">Nhận Tư Vấn Xây Dựng Miễn Phí</a>
+                <div className="cta-box reveal text-white" style={{
+                    background: 'var(--gradient-primary)',
+                    color: 'white',
+                    padding: '60px 40px',
+                    borderRadius: '25px',
+                    marginTop: '80px',
+                    textAlign: 'center',
+                    boxShadow: '0 20px 40px rgba(0,107,68,0.2)'
+                }}>
+                    <h2 style={{ color: 'white', marginBottom: '20px', fontSize: '2.5rem' }}>Bạn Đang Lên Kế Hoạch Xây Nhà?</h2>
+                    <p style={{ fontSize: '1.2rem', marginBottom: '40px', opacity: '0.95' }}>Hãy để chúng tôi tư vấn miễn phí về vật tư và phương án thi công phù hợp nhất với ngân sách của bạn.</p>
+                    <a href="#contact" className="btn" style={{
+                        background: 'white', color: 'var(--primary)', fontWeight: '800',
+                        padding: '18px 50px', fontSize: '1.2rem', border: 'none',
+                        borderRadius: '50px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
+                    }}>Nhận Tư Vấn Xây Dựng Miễn Phí</a>
                 </div>
             </div>
         </main>
