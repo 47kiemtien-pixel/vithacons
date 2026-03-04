@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logo from '../assets/brand/logo-new.png'
 
 const Footer = () => {
@@ -22,10 +23,10 @@ const Footer = () => {
                     <div className="footer-col">
                         <h4>Danh Mục</h4>
                         <ul className="footer-links">
-                            <li><a href="#home">Trang Chủ</a></li>
+                            <li><Link to="/">Trang Chủ</Link></li>
                             <li><a href="#about">Giới Thiệu</a></li>
-                            <li><a href="#services">Dịch Vụ Thi Công</a></li>
-                            <li><a href="#services">Nhà Thép Tiền Chế</a></li>
+                            <li><Link to="/thiet-ke-thi-cong">Dịch Vụ Thi Công</Link></li>
+                            <li><Link to="/nha-thep-tien-che">Nhà Thép Tiền Chế</Link></li>
                             <li><a href="#workflow">Quy Trình</a></li>
                             <li><a href="#contact">Liên Hệ</a></li>
                         </ul>

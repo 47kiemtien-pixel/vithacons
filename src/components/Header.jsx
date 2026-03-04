@@ -35,6 +35,10 @@ const Header = () => {
         setMobileMenuOpen(false);
         setDropdownOpen(false);
 
+        if (path === '/') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         if (path.startsWith('/#')) {
             const id = path.substring(2);
             if (location.pathname === '/') {
