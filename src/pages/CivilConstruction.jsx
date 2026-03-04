@@ -1,7 +1,7 @@
-import heroImg from '../assets/images/banners/Artboard 2b.jpg';
-import townhouseImg from '../assets/images/civil/Xay dung dan dung 1.jpg';
-import villaImg from '../assets/images/civil/Xay dung dan dung 3.jpg';
-import constructionImg from '../assets/images/civil/Xay dung dan dung 4.jpg';
+import heroImg from '../assets/images/banners/artboard-2b.jpg';
+import townhouseImg from '../assets/images/civil/xay-dung-dan-dung-1.jpg';
+import villaImg from '../assets/images/civil/xay-dung-dan-dung-3.jpg';
+import constructionImg from '../assets/images/civil/xay-dung-dan-dung-4.jpg';
 
 const CivilConstruction = () => {
     // Local images from src/assets

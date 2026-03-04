@@ -1,14 +1,15 @@
-import heroImg from '../assets/images/banners/Artboard 3.jpg';
-import model1 from '../assets/images/elevators/TK lap dat thang may 1.jpg';
-import model2 from '../assets/images/elevators/TK lap dat thang may 2.jpg';
-import model3 from '../assets/images/elevators/TK lap dat thang may 3.jpg';
-import model4 from '../assets/images/elevators/TK lap dat thang may 4.jpg';
-import model5 from '../assets/images/elevators/TK lap dat thang may 5.jpg';
-import model6 from '../assets/images/elevators/TK lap dat thang may 6.jpg';
+import heroImg from '../assets/images/banners/artboard-3.jpg';
+import model1 from '../assets/images/elevators/tk-lap-dat-thang-may-1.jpg';
+import model2 from '../assets/images/elevators/tk-lap-dat-thang-may-2.jpg';
+import model3 from '../assets/images/elevators/tk-lap-dat-thang-may-3.jpg';
+import model4 from '../assets/images/elevators/tk-lap-dat-thang-may-4.jpg';
+import model5 from '../assets/images/elevators/tk-lap-dat-thang-may-5.jpg';
+import model6 from '../assets/images/elevators/tk-lap-dat-thang-may-6.jpg';
+import brandLogo from '../assets/brand/logo-new.png';
 
 const ElevatorServices = () => {
     const images = {
-        logo: "http://vithacon.vn/logo/2622/Logo%201b.png",
+        logo: brandLogo,
         hero: heroImg,
         models: [
             {

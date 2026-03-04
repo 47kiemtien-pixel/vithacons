@@ -1,3 +1,5 @@
+import townhouseImg from '../assets/images/civil/xay-dung-dan-dung-2.jpg';
+
 const SteelBuildings = () => {
     return (
         <main className="page-content section">
@@ -17,7 +19,7 @@ const SteelBuildings = () => {
                         </ul>
                     </div>
                     <div className="image-content">
-                        <img src="http://vithacon.vn/sanpham_images/2622/Nha%20thep%20tien%20che%201.jpg" alt="Nhà thép tiền chế Việt Thành" className="rounded-img" />
+                        <img src={townhouseImg} alt="Nhà thép tiền chế Việt Thành" className="rounded-img" />
                     </div>
                 </div>
 

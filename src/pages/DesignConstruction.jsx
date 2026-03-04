@@ -1,3 +1,7 @@
+import showroomImg from '../assets/images/civil/xay-dung-dan-dung-2.jpg';
+import civilImg from '../assets/images/civil/xay-dung-dan-dung-1.jpg';
+import elevatorImg from '../assets/images/elevators/tk-lap-dat-thang-may-1.jpg';
+
 const DesignConstruction = () => {
     return (
         <main className="page-content section">
@@ -9,7 +13,7 @@ const DesignConstruction = () => {
                 <div className="service-deep-item reveal">
                     <div className="grid grid-2">
                         <div className="image-content">
-                            <img src="http://vithacon.vn/sanpham_images/2622/Nha%20thep%20tien%20che%202.jpg" alt="Showroom tiền chế" className="rounded-img" />
+                            <img src={showroomImg} alt="Showroom tiền chế" className="rounded-img" />
                         </div>
                         <div className="text-content">
                             <h3>Thiết Kế Thi Công Showroom Nhà Tiền Chế</h3>
@@ -40,7 +44,7 @@ const DesignConstruction = () => {
                             </ul>
                         </div>
                         <div className="image-content">
-                            <img src="http://vithacon.vn/sanpham_images/2622/Xay%20dung%20dan%20dung%201.jpg" alt="Xây dựng dân dụng" className="rounded-img" />
+                            <img src={civilImg} alt="Xây dựng dân dụng" className="rounded-img" />
                         </div>
                     </div>
                 </div>
@@ -51,7 +55,7 @@ const DesignConstruction = () => {
                 <div className="service-deep-item reveal">
                     <div className="grid grid-2">
                         <div className="image-content">
-                            <img src="http://vithacon.vn/sanpham_images/2622/TK%20lap%20dat%20thang%20may%201.jpg" alt="Thang máy chuyên nghiệp" className="rounded-img" />
+                            <img src={elevatorImg} alt="Thang máy chuyên nghiệp" className="rounded-img" />
                         </div>
                         <div className="text-content">
                             <h3>Thiết Kế & Lắp Đặt Thang Máy Chuyên Nghiệp</h3>

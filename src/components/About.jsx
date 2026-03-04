@@ -1,9 +1,11 @@
+import aboutImg from '../assets/images/banners/artboard-2b.jpg';
+
 const About = () => {
     return (
         <section id="about" className="about section">
             <div className="container about-grid">
                 <div className="about-image reveal">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2062&auto=format&fit=crop" alt="Công trình xây dựng Việt Thành" />
+                    <img src={aboutImg} alt="Công trình xây dựng Việt Thành" />
                     <div className="about-badge">
                         <span className="year">10+</span>
                         <span className="text">Năm Kinh Nghiệm</span>
