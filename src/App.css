@@ -351,6 +351,7 @@ h6 {
   line-height: 1.1;
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   animation: slideUp 0.8s ease backwards;
+  color: var(--white);
 }
 
 .hero-content {
@@ -366,7 +367,8 @@ h6 {
 .hero-text {
   font-size: 1.25rem;
   margin-bottom: 40px;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--white);
+  opacity: 0.95;
   animation: slideUp 0.8s ease 0.2s backwards;
 }
 

@@ -56,11 +56,11 @@ const ElevatorServices = () => {
                 />
                 <div style={{
                     position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-                    background: 'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5))', display: 'flex', flexDirection: 'column',
+                    background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6))', display: 'flex', flexDirection: 'column',
                     justifyContent: 'center', alignItems: 'center', color: 'white', textAlign: 'center', padding: '20px'
                 }}>
-                    <h1 style={{ fontSize: '3rem', marginBottom: '10px', textShadow: '0 4px 15px rgba(0,0,0,0.6)' }}>Thang Máy Việt Thành</h1>
-                    <p style={{ fontSize: '1.2rem', maxWidth: '800px', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Giải pháp di chuyển thông minh cho những công trình hiện đại</p>
+                    <h1 style={{ fontSize: '3rem', marginBottom: '10px', textShadow: '0 4px 15px rgba(0,0,0,0.8)', color: 'white' }}>Thang Máy Việt Thành</h1>
+                    <p style={{ fontSize: '1.2rem', maxWidth: '800px', textShadow: '0 2px 4px rgba(0,0,0,0.6)', color: 'white' }}>Giải pháp di chuyển thông minh cho những công trình hiện đại</p>
                 </div>
             </section>
 
