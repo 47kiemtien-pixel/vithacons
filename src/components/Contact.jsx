@@ -9,8 +9,8 @@ const Contact = () => {
                             Chúng tôi sẵn sàng hỗ trợ mọi thắc mắc về dịch vụ thiết kế và thi công. Hãy liên hệ để được tư vấn tận tình và nhanh chóng!
                         </p>
                         <ul className="contact-info" style={{ listStyle: 'none', padding: 0 }}>
-                            <li style={{ display: 'flex', marginBottom: '15px' }}><span style={{ marginRight: '15px', fontSize: '1.5rem' }}>📍</span> <span><strong>Trụ sở chính:</strong> 122/118, KP. Tân Lập, P. Đông Hòa, TP. Hồ Chí Minh</span></li>
-                            <li style={{ display: 'flex', marginBottom: '15px' }}><span style={{ marginRight: '15px', fontSize: '1.5rem' }}>🏢</span> <span><strong>Văn phòng:</strong> Milano ML127 KĐT Ecocity Premia, P. Tân An, Đắk Lắk</span></li>
+                            <li style={{ display: 'flex', marginBottom: '15px' }}><span style={{ marginRight: '15px', fontSize: '1.5rem' }}>🏢</span> <span><strong>Trụ sở chính:</strong> 122/118, KP. Tân Lập, P. Đông Hòa, TP. Hồ Chí Minh</span></li>
+                            <li style={{ display: 'flex', marginBottom: '15px' }}><span style={{ marginRight: '15px', fontSize: '1.5rem' }}>📍</span> <span><strong>Văn phòng:</strong> Milano ML127 KĐT Ecocity Premia, P. Tân An, Đắk Lắk</span></li>
                             <li style={{ display: 'flex', marginBottom: '15px' }}><span style={{ marginRight: '15px', fontSize: '1.5rem' }}>📞</span> <span><strong>Hotline:</strong> 0972 524 799</span></li>
                             <li style={{ display: 'flex', marginBottom: '15px' }}><span style={{ marginRight: '15px', fontSize: '1.5rem' }}>📧</span> <span><strong>Email:</strong> vietthanh.me.con@gmail.com</span></li>
                         </ul>
