@@ -11,6 +11,9 @@ import DesignConstruction from './pages/DesignConstruction'
 import SteelBuildings from './pages/SteelBuildings'
 import CivilConstruction from './pages/CivilConstruction'
 import ElevatorServices from './pages/ElevatorServices'
+import AdminLogin from './pages/AdminLogin'
+import AdminDashboard from './pages/AdminDashboard'
+import ProtectedRoute from './components/ProtectedRoute'
 
 // Scroll To Top Component
 const ScrollToTop = () => {
@@ -53,6 +56,14 @@ const AppContent = () => {
                 <Route path="/nha-thep-tien-che" element={<SteelBuildings />} />
                 <Route path="/xay-dung-dan-dung" element={<CivilConstruction />} />
                 <Route path="/thang-may" element={<ElevatorServices />} />
+
+                {/* Admin Routes */}
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/admin" element={
+                    <ProtectedRoute>
+                        <AdminDashboard />
+                    </ProtectedRoute>
+                } />
             </Routes>
             <Footer />
             <SocialSidebar />
