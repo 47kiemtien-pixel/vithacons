@@ -9,10 +9,6 @@ const About = () => {
             <div className="container about-grid">
                 <div className="about-image reveal">
                     <img src={about.image} alt={about.heading} />
-                    <div className="about-badge">
-                        <span className="year">{about.experienceYears}</span>
-                        <span className="text">{about.experienceText}</span>
-                    </div>
                 </div>
 
                 <div className="about-content reveal">

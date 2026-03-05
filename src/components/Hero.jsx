@@ -8,7 +8,6 @@ const Hero = () => {
         <section id="home" className="hero">
             <div className="hero-overlay"></div>
             <div className="container hero-content">
-                <h3 className="hero-subtitle reveal">{hero.subtitle}</h3>
                 <h1 className="hero-title reveal">
                     {hero.title} <br />
                     <span>Thiết Kế & Thi Công Chuyên Nghiệp</span>
