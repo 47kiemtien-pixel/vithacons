@@ -17,6 +17,13 @@ const About = () => {
                     <p>{about.description1}</p>
                     <p>{about.description2}</p>
 
+                    <div className="about-stats" style={{ marginBottom: '30px' }}>
+                        <div className="stat-item">
+                            <span className="stat-number" style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--secondary)', display: 'block', lineHeight: '1' }}>{about.experienceYears}</span>
+                            <span className="stat-label" style={{ fontSize: '1rem', fontWeight: '600', color: 'var(--gray)', textTransform: 'uppercase' }}>{about.experienceText}</span>
+                        </div>
+                    </div>
+
                     <div className="about-features">
                         {about.features.map((feature, idx) => (
                             <div className="about-feature" key={idx}>
