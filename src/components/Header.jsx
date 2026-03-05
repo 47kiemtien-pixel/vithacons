@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-
-import logo from '../assets/brand/logo-new.png'
+import useSiteData from '../hooks/useSiteData';
 
 const Header = () => {
+    const { data } = useSiteData();
+    const { general } = data;
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -91,8 +90,8 @@ const Header = () => {
                             </Link>
                         )
                     ))}
-                    <a href="tel:0972524799" className="btn btn-secondary" style={{ marginLeft: '10px' }}>
-                        ☎ 0972 524 799
+                    <a href={`tel:${general.phone.replace(/\s/g, '')}`} className="btn btn-secondary" style={{ marginLeft: '10px' }}>
+                        ☎ {general.phone}
                     </a>
                 </nav>
 

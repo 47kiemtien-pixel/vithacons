@@ -1,7 +1,10 @@
+import useSiteData from '../hooks/useSiteData';
 import { Link } from 'react-router-dom'
 import logo from '../assets/brand/logo-new.png'
 
 const Footer = () => {
+    const { data } = useSiteData();
+    const { general } = data;
     return (
         <footer className="footer">
             <div className="container">
@@ -14,10 +17,10 @@ const Footer = () => {
                             Công Ty TNHH Cơ Khí Xây Dựng Thương Mại Việt Thành tự hào là đơn vị uy tín trong lĩnh vực thiết kế, thi công nhà tiền chế và xây dựng dân dụng. Chúng tôi cam kết chất lượng, tiến độ và giải pháp tối ưu chi phí.
                         </p>
                         <div style={{ marginTop: '15px', fontSize: '0.9rem', opacity: 0.8 }}>
-                            <p><strong>Giấy phép ĐKKD:</strong> 3702556996 (Cấp ngày 25/04/2017)</p>
-                            <p><strong>Người đại diện:</strong> Lê Quang Khải</p>
-                            <p><strong>Trụ sở chính:</strong> 122/118, KP. Tân Lập, P. Đông Hòa, TP. Hồ Chí Minh</p>
-                            <p><strong>Văn phòng:</strong> Milano ML127 KĐT Ecocity Premia, P. Tân An, Đắk Lắk</p>
+                            <p><strong>Giấy phép ĐKKD:</strong> {general.license}</p>
+                            <p><strong>Người đại diện:</strong> {general.representative}</p>
+                            <p><strong>Trụ sở chính:</strong> {general.addressHCM}</p>
+                            <p><strong>Văn phòng:</strong> {general.addressDakLak}</p>
                         </div>
                     </div>
                     <div className="footer-col">
@@ -35,7 +38,7 @@ const Footer = () => {
             </div>
             <div className="footer-bottom">
                 <div className="container">
-                    <p>&copy; {new Date().getFullYear()} Bản quyền thuộc về Công Ty TNHH Cơ Khí Xây Dựng Thương Mại Việt Thành.</p>
+                    <p>&copy; {new Date().getFullYear()} Bản quyền thuộc về {general.companyName}.</p>
                 </div>
             </div>
         </footer>
