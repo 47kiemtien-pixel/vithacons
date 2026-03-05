@@ -458,21 +458,21 @@ h6 {
 
 .about-badge {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 10px;
+  right: 10px;
   background-color: var(--secondary);
   color: var(--white);
-  padding: 15px;
+  padding: 10px;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   box-shadow: var(--shadow-md);
-  border: 3px solid var(--white);
+  border: 2px solid var(--white);
   z-index: 2;
   animation: pulse 2s infinite;
 }
@@ -483,7 +483,7 @@ h6 {
   }
 
   70% {
-    box-shadow: 0 0 0 15px rgba(212, 106, 42, 0);
+    box-shadow: 0 0 0 10px rgba(212, 106, 42, 0);
   }
 
   100% {
@@ -492,16 +492,16 @@ h6 {
 }
 
 .about-badge span.year {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 800;
   line-height: 1;
 }
 
 .about-badge span.text {
-  font-size: 0.6rem;
+  font-size: 0.5rem;
   font-weight: 700;
   text-transform: uppercase;
-  line-height: 1.2;
+  line-height: 1;
 }
 
 .about-content h3 {
