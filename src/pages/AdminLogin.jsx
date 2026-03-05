@@ -7,9 +7,9 @@ const AdminLogin = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    // Hardcoded credentials for security as requested
-    const ADMIN_USER = 'admin';
-    const ADMIN_PASS = 'vithacon@2025';
+    // Use environment variables for security in public repo
+    const ADMIN_USER = import.meta.env.VITE_ADMIN_USER;
+    const ADMIN_PASS = import.meta.env.VITE_ADMIN_PASS;
 
     const handleLogin = (e) => {
         e.preventDefault();
