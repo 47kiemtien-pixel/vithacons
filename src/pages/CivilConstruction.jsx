@@ -1,10 +1,12 @@
+import useSiteData from '../hooks/useSiteData';
 import heroImg from '../assets/images/banners/artboard-2b.jpg';
 import townhouseImg from '../assets/images/civil/xay-dung-dan-dung-1.jpg';
 import villaImg from '../assets/images/civil/xay-dung-dan-dung-3.jpg';
 import constructionImg from '../assets/images/civil/xay-dung-dan-dung-4.jpg';
 
 const CivilConstruction = () => {
-    // Local images from src/assets
+    const { data } = useSiteData();
+    const { general } = data;
     const images = {
         hero: heroImg,
         townhouse: townhouseImg,
@@ -82,7 +84,7 @@ const CivilConstruction = () => {
                         background: 'white', color: 'var(--primary)', fontWeight: '800',
                         padding: '18px 50px', fontSize: '1.2rem', border: 'none',
                         borderRadius: '50px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
-                    }}>Nhận Tư Vấn Xây Dựng Miễn Phí</a>
+                    }}>Nhận Tư Vấn Xây Dựng Miễn Phí: {general?.phone}</a>
                 </div>
             </div>
         </main>

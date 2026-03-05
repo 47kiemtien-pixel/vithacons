@@ -1,4 +1,7 @@
+import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import useSiteData from '../hooks/useSiteData';
+import logo from '../assets/brand/logo-new.png'
 
 const Header = () => {
     const { data } = useSiteData();
@@ -90,8 +93,8 @@ const Header = () => {
                             </Link>
                         )
                     ))}
-                    <a href={`tel:${general.phone.replace(/\s/g, '')}`} className="btn btn-secondary" style={{ marginLeft: '10px' }}>
-                        ☎ {general.phone}
+                    <a href={`tel:${(general?.phone || '').replace(/\s/g, '')}`} className="btn btn-secondary" style={{ marginLeft: '10px' }}>
+                        ☎ {general?.phone || 'Liên hệ'}
                     </a>
                 </nav>
 

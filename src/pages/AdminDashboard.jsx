@@ -14,20 +14,33 @@ const AdminDashboard = () => {
     };
 
     const handleInputChange = (section, field, value) => {
-        const newData = { ...data };
-        newData[section][field] = value;
+        const newData = {
+            ...data,
+            [section]: {
+                ...data[section],
+                [field]: value
+            }
+        };
         updateData(newData);
-        showStatus('Đã cập nhật dữ liệu tạm thời!');
+        showStatus('Đã cập nhật dữ liệu!');
     };
 
     const handleListChange = (section, index, field, value) => {
         const newData = { ...data };
+        const newSection = { ...data[section] };
+
         if (field) {
-            newData[section].list[index][field] = value;
+            const newList = [...newSection.list];
+            newList[index] = { ...newList[index], [field]: value };
+            newSection.list = newList;
         } else {
             // For simple string arrays like about.features
-            newData[section].features[index] = value;
+            const newFeatures = [...newSection.features];
+            newFeatures[index] = value;
+            newSection.features = newFeatures;
         }
+
+        newData[section] = newSection;
         updateData(newData);
         showStatus('Đã cập nhật danh sách!');
     };

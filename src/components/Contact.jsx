@@ -1,4 +1,16 @@
+import useSiteData from '../hooks/useSiteData';
+
 const Contact = () => {
+    const { data } = useSiteData();
+    const { general } = data;
+
+    const contactList = [
+        { icon: '📞', label: 'Hotline', value: general?.phone || '', href: `tel:${(general?.phone || '').replace(/\s/g, '')}` },
+        { icon: '📧', label: 'Email', value: general.email, href: `mailto:${general.email}` },
+        { icon: '🌐', label: 'Website', value: general.website, href: `https://${general.website}` },
+        { icon: '🏢', label: 'Trụ sở chính', value: general.addressHCM, href: '#' },
+        { icon: '📍', label: 'Văn phòng', value: general.addressDakLak, href: '#' }
+    ];
     return (
         <section id="contact" className="section" style={{ backgroundColor: '#fff' }}>
             <div className="container">

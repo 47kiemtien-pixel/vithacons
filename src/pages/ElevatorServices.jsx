@@ -1,3 +1,4 @@
+import useSiteData from '../hooks/useSiteData';
 import heroImg from '../assets/images/banners/artboard-3.jpg';
 import model1 from '../assets/images/elevators/tk-lap-dat-thang-may-1.jpg';
 import model2 from '../assets/images/elevators/tk-lap-dat-thang-may-2.jpg';
@@ -8,6 +9,9 @@ import model6 from '../assets/images/elevators/tk-lap-dat-thang-may-6.jpg';
 import brandLogo from '../assets/brand/logo-new.png';
 
 const ElevatorServices = () => {
+    const { data } = useSiteData();
+    const { general } = data;
+    const phoneNoSpace = (general?.phone || '').replace(/\s/g, '');
     const images = {
         logo: brandLogo,
         hero: heroImg,
@@ -59,7 +63,7 @@ const ElevatorServices = () => {
                     background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6))', display: 'flex', flexDirection: 'column',
                     justifyContent: 'center', alignItems: 'center', color: 'white', textAlign: 'center', padding: '20px'
                 }}>
-                    <h1 style={{ fontSize: '3rem', marginBottom: '10px', textShadow: '0 4px 15px rgba(0,0,0,0.8)', color: 'white' }}>Thang Máy Việt Thành</h1>
+                    <h1 style={{ fontSize: '3rem', marginBottom: '10px', textShadow: '0 4px 15px rgba(0,0,0,0.8)', color: 'white' }}>Thang Máy {general?.companyName?.includes('Việt Thành') ? 'Việt Thành' : general?.companyName}</h1>
                     <p style={{ fontSize: '1.2rem', maxWidth: '800px', textShadow: '0 2px 4px rgba(0,0,0,0.6)', color: 'white' }}>Giải pháp di chuyển thông minh cho những công trình hiện đại</p>
                 </div>
             </section>
@@ -178,13 +182,13 @@ const ElevatorServices = () => {
                     <p style={{ marginBottom: '40px', fontSize: '1.2rem', opacity: 0.95, color: 'white' }}>
                         Nhận báo giá chi tiết và phương án thi công tối ưu nhất cho tòa nhà của bạn.
                     </p>
-                    <a href="tel:0972524799" className="btn" style={{
+                    <a href={`tel:${phoneNoSpace}`} className="btn" style={{
                         background: 'white', color: 'var(--primary)', fontWeight: '800',
                         padding: '18px 50px', fontSize: '1.2rem', border: 'none',
                         borderRadius: '50px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
                         display: 'inline-block', transition: 'transform 0.3s ease'
                     }}>
-                        Liên Hệ Ngay: 0972 524 799
+                        Liên Hệ Ngay: {general?.phone}
                     </a>
                 </div>
             </div>

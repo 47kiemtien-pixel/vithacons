@@ -1,4 +1,8 @@
+import useSiteData from '../hooks/useSiteData';
+
 const Features = () => {
+    const { data } = useSiteData();
+    const { general } = data;
     const featureList = [
         { title: 'Chất lượng dịch vụ', desc: 'Tiêu chuẩn nghiêm ngặt từ thiết kế đến thi công, đạt yêu cầu kỹ thuật khắt khe.', icon: '⭐' },
         { title: 'Kinh nghiệm phong phú', desc: 'Hiểu rõ nhu cầu khách hàng, đưa ra các giải pháp tối ưu dựa trên hàng loạt dự án.', icon: '💡' },

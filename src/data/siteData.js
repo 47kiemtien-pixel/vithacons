@@ -21,7 +21,7 @@ export const siteData = {
         representative: 'Lê Quang Khải'
     },
     hero: {
-        title: 'XÂY DỰNG VIỆT THÀNH',
+        title: 'VIỆT THÀNH',
         subtitle: 'CHUYÊN NGHIỆP - CHẤT LƯỢNG - BỀN VỮNG',
         description: 'Giải pháp thiết kế và thi công nhà thép tiền chế, xây dựng dân dụng trọn gói hàng đầu.'
     },

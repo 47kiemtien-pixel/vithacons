@@ -1,8 +1,12 @@
+import useSiteData from '../hooks/useSiteData';
 import showroomImg from '../assets/images/civil/xay-dung-dan-dung-2.jpg';
 import civilImg from '../assets/images/civil/xay-dung-dan-dung-1.jpg';
 import elevatorImg from '../assets/images/elevators/tk-lap-dat-thang-may-1.jpg';
 
 const DesignConstruction = () => {
+    const { data } = useSiteData();
+    const { general } = data;
+    const phoneNoSpace = (general?.phone || '').replace(/\s/g, '');
     return (
         <main className="page-content section">
             <div className="container">
@@ -109,7 +113,7 @@ const DesignConstruction = () => {
                 <div className="cta-box reveal" style={{ background: 'var(--primary)', color: 'white', padding: '40px', borderRadius: '15px', marginTop: '70px', textAlign: 'center' }}>
                     <h2 style={{ color: 'white' }}>Nhận Tư Vấn Kỹ Thuật Chi Tiết</h2>
                     <p>Liên hệ ngay để nhận báo giá chi tiết dựa trên khẩu độ, chiều cao nâng hạ và tốc độ làm việc mong muốn.</p>
-                    <a href="tel:0972524799" className="btn btn-secondary">Gọi Hotline: 0972 524 799</a>
+                    <a href={`tel:${phoneNoSpace}`} className="btn btn-secondary">Gọi Hotline: {general?.phone}</a>
                 </div>
             </div>
         </main>

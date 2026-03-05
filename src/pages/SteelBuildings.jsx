@@ -1,6 +1,10 @@
+import useSiteData from '../hooks/useSiteData';
 import townhouseImg from '../assets/images/civil/xay-dung-dan-dung-2.jpg';
 
 const SteelBuildings = () => {
+    const { data } = useSiteData();
+    const { general } = data;
+    const phoneNoSpace = (general?.phone || '').replace(/\s/g, '');
     return (
         <main className="page-content section">
             <div className="container">
@@ -69,11 +73,11 @@ const SteelBuildings = () => {
                 }}>
                     <h2 style={{ color: 'white', marginBottom: '20px', fontSize: '2.5rem' }}>Việt Thành Cam Kết: Giám Sát 24/24 - Đúng Tiến Độ</h2>
                     <p style={{ fontSize: '1.2rem', marginBottom: '40px', opacity: '0.95', color: 'white' }}>Hãy để chúng tôi đồng hành cùng sự phát triển bền vững của doanh nghiệp bạn.</p>
-                    <a href="tel:0972524799" className="btn" style={{
+                    <a href={`tel:${phoneNoSpace}`} className="btn" style={{
                         background: 'white', color: 'var(--primary)', fontWeight: '800',
                         padding: '18px 50px', fontSize: '1.2rem', border: 'none',
                         borderRadius: '50px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
-                    }}>Nhận Báo Giá Nhà Thép: 0972 524 799</a>
+                    }}>Nhận Báo Giá Nhà Thép: {general?.phone}</a>
                 </div>
             </div>
         </main>
