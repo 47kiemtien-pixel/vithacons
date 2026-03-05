@@ -458,34 +458,50 @@ h6 {
 
 .about-badge {
   position: absolute;
-  bottom: -20px;
-  right: -20px;
+  bottom: 20px;
+  right: 20px;
   background-color: var(--secondary);
   color: var(--white);
-  padding: 30px;
+  padding: 15px;
   border-radius: 50%;
-  width: 140px;
-  height: 140px;
+  width: 100px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   box-shadow: var(--shadow-md);
-  border: 5px solid var(--white);
+  border: 3px solid var(--white);
   z-index: 2;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 106, 42, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 15px rgba(212, 106, 42, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 106, 42, 0);
+  }
 }
 
 .about-badge span.year {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 800;
   line-height: 1;
 }
 
 .about-badge span.text {
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.6rem;
+  font-weight: 700;
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .about-content h3 {
