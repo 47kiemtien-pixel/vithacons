@@ -456,6 +456,39 @@ h6 {
   transform: scale(1.05);
 }
 
+.about-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: var(--secondary);
+  color: var(--white);
+  padding: 8px;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--white);
+  z-index: 10;
+}
+
+.about-badge span.year {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.about-badge span.text {
+  font-size: 0.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
 .about-content h3 {
   color: var(--secondary);
   font-size: 1.25rem;
