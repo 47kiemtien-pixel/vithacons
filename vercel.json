@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/bao-gia",
-      "destination": "https://vithacons-quote-z3ny.vercel.app/bao-gia"
+      "destination": "https://vithacons-quote-z3ny.vercel.app/bao-gia/"
     },
     {
       "source": "/bao-gia/:match*",
