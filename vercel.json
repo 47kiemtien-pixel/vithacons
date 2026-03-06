@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/bao-gia/:match*",
+      "destination": "https://vithacons-quote-z3ny.vercel.app/bao-gia/:match*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
