@@ -31,7 +31,7 @@ const Header = () => {
         { name: 'DỰ ÁN', path: '/#projects' },
         { name: 'QUY TRÌNH', path: '/#workflow' },
         { name: 'LIÊN HỆ', path: '/#contact' },
-        { name: 'TUYỂN DỤNG', path: '/tuyen-dung-viet-thanh.pdf', external: true }
+        { name: 'TUYỂN DỤNG', path: '/tuyen-dung' }
     ];
 
     const handleLinkClick = (path) => {

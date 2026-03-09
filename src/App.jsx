@@ -11,6 +11,7 @@ import DesignConstruction from './pages/DesignConstruction'
 import SteelBuildings from './pages/SteelBuildings'
 import CivilConstruction from './pages/CivilConstruction'
 import ElevatorServices from './pages/ElevatorServices'
+import TuyenDung from './pages/TuyenDung'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -56,6 +57,7 @@ const AppContent = () => {
                 <Route path="/nha-thep-tien-che" element={<SteelBuildings />} />
                 <Route path="/xay-dung-dan-dung" element={<CivilConstruction />} />
                 <Route path="/thang-may" element={<ElevatorServices />} />
+                <Route path="/tuyen-dung" element={<TuyenDung />} />
 
                 {/* Admin Routes */}
                 <Route path="/admin/login" element={<AdminLogin />} />
