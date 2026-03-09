@@ -30,7 +30,8 @@ const Header = () => {
         },
         { name: 'DỰ ÁN', path: '/#projects' },
         { name: 'QUY TRÌNH', path: '/#workflow' },
-        { name: 'LIÊN HỆ', path: '/#contact' }
+        { name: 'LIÊN HỆ', path: '/#contact' },
+        { name: 'TUYỂN DỤNG', path: '/tuyen-dung-viet-thanh.pdf', external: true }
     ];
 
     const handleLinkClick = (path) => {
@@ -83,14 +84,26 @@ const Header = () => {
                                 </div>
                             </div>
                         ) : (
-                            <Link
-                                key={idx}
-                                to={link.path}
-                                className="nav-link"
-                                onClick={() => handleLinkClick(link.path)}
-                            >
-                                {link.name}
-                            </Link>
+                            link.external ? (
+                                <a
+                                    key={idx}
+                                    href={link.path}
+                                    className="nav-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {link.name}
+                                </a>
+                            ) : (
+                                <Link
+                                    key={idx}
+                                    to={link.path}
+                                    className="nav-link"
+                                    onClick={() => handleLinkClick(link.path)}
+                                >
+                                    {link.name}
+                                </Link>
+                            )
                         )
                     ))}
                     <a href={`tel:${(general?.phone || '').replace(/\s/g, '')}`} className="btn btn-secondary" style={{ marginLeft: '10px' }}>
