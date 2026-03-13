@@ -94,7 +94,13 @@ const TuyenDung = () => {
                 ) : (
                     <div className="pdf-preview-container reveal">
                         <div className="preview-actions">
-                            <button onClick={() => setSelectedPdf(null)} className="btn btn-secondary">
+                            <button 
+                                onClick={() => {
+                                    setSelectedPdf(null);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }} 
+                                className="btn btn-secondary"
+                            >
                                 ← Quay lại danh sách
                             </button>
                         </div>
