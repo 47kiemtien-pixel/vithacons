@@ -13,7 +13,7 @@ export const siteData = {
     general: {
         companyName: 'Công Ty TNHH Cơ Khí Xây Dựng Thương Mại Việt Thành',
         phone: '0972 524 799',
-        email: 'vithacons@gmail.com',
+        email: 'vietthanh.me.con@gmail.com',
         website: 'vithacon.vn',
         addressHCM: '122/118, KP. Tân Lập, P. Đông Hòa, TP. Hồ Chí Minh',
         addressDakLak: 'Milano ML127 KĐT Ecocity Premia, P. Tân An, Đắk Lắk',
