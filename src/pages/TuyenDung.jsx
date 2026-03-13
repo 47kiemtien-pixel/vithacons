@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Viewer, Worker } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 
@@ -7,10 +7,18 @@ import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 const TuyenDung = () => {
     const [selectedPdf, setSelectedPdf] = useState(null);
+    const topRef = useRef(null);
     const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
     // Use useMemo to avoid re-creating the plugin instance on every render
     const plugins = useMemo(() => [defaultLayoutPluginInstance], []);
+
+    // Scroll to top when returning to list
+    useEffect(() => {
+        if (!selectedPdf && topRef.current) {
+            topRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [selectedPdf]);
 
     const jobs = [
         {
@@ -40,7 +48,7 @@ const TuyenDung = () => {
     ];
 
     return (
-        <div className="recruitment-page page-content">
+        <div className="recruitment-page page-content" ref={topRef}>
             <div className="container">
                 {!selectedPdf ? (
                     <>
@@ -95,10 +103,7 @@ const TuyenDung = () => {
                     <div className="pdf-preview-container reveal">
                         <div className="preview-actions">
                             <button 
-                                onClick={() => {
-                                    setSelectedPdf(null);
-                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                }} 
+                                onClick={() => setSelectedPdf(null)} 
                                 className="btn btn-secondary"
                             >
                                 ← Quay lại danh sách
