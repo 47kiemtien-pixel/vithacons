@@ -1666,3 +1666,129 @@ h6 {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==============================
+   Recruitment Section
+============================== */
+.recruitment-page {
+  padding-top: 150px;
+  padding-bottom: 80px;
+  background-color: var(--light);
+}
+
+.recruitment-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.recruitment-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.recruitment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+}
+
+.job-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 35px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  border: 1px solid var(--gray-light);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.job-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary);
+}
+
+.job-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: rgba(212, 106, 42, 0.1);
+  color: var(--secondary);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.job-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.job-salary {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed var(--gray-light);
+}
+
+.job-info-block {
+  margin-bottom: 20px;
+}
+
+.job-info-block h4 {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.job-info-block ul {
+  margin: 0;
+  padding: 0;
+}
+
+.job-info-block li {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-bottom: 5px;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 15px;
+}
+
+.job-info-block li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--secondary);
+}
+
+.job-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.job-pdf-link {
+  font-size: 0.85rem;
+  color: var(--gray);
+  text-decoration: underline;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.job-pdf-link:hover {
+  color: var(--secondary);
+}
