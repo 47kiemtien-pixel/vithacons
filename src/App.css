@@ -1668,7 +1668,7 @@ h6 {
 }
 
 /* ==============================
-   Recruitment Section
+   Recruitment Section (Master-Detail)
 ============================== */
 .recruitment-page {
   padding-top: 150px;
@@ -1687,128 +1687,116 @@ h6 {
   margin-bottom: 15px;
 }
 
-.recruitment-grid {
+.recruitment-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: 350px 1fr;
   gap: 30px;
-}
-
-.job-card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 35px;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition);
-  border: 1px solid var(--gray-light);
+  align-items: start;
+.job-sidebar {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  gap: 15px;
+  position: sticky;
+  top: 150px;
 }
 
-.job-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+.job-sidebar-item {
+  background: var(--white);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+.job-sidebar-item:hover {
+  border-color: var(--gray-light);
+  transform: translateX(8px);
+}
+
+.job-sidebar-item.active {
   border-color: var(--secondary);
+  background: rgba(212, 106, 42, 0.05);
+  box-shadow: var(--shadow-md);
 }
 
-.job-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  background-color: rgba(212, 106, 42, 0.1);
-  color: var(--secondary);
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  width: fit-content;
-}
-
-.job-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: var(--primary);
-}
-
-.job-salary {
+.job-sidebar-item h4 {
   font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--dark);
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px dashed var(--gray-light);
-}
-
-.job-info-block {
-  margin-bottom: 20px;
-}
-
-.job-info-block h4 {
-  font-size: 0.95rem;
-  margin-bottom: 8px;
   color: var(--primary);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  margin-bottom: 8px;
 }
 
-.job-info-block ul {
-  margin: 0;
+.job-sidebar-item .sidebar-salary {
+  font-size: 0.9rem;
+  color: var(--secondary);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.job-sidebar-item p {
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.4;
+}
+
+.viewer-section {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 1px solid var(--gray-light);
+  animation: fadeIn 0.5s ease;
+}
+
+.viewer-header {
+  padding: 24px 30px;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--gray-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.viewer-header h2 {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.viewer-content {
   padding: 0;
 }
 
-.job-info-block li {
-  font-size: 0.9rem;
-  color: var(--gray);
-  margin-bottom: 5px;
-  line-height: 1.4;
-  position: relative;
-  padding-left: 15px;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.job-info-block li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: var(--secondary);
+@media (max-width: 992px) {
+  .recruitment-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .job-sidebar {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .job-sidebar-item {
+    min-width: 280px;
+    flex-shrink: 0;
+  }
+
+  .job-sidebar-item:hover {
+    transform: translateY(-5px);
+  }
 }
 
-.job-footer {
-  margin-top: auto;
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.job-pdf-link {
-  font-size: 0.85rem;
-  color: var(--gray);
-  text-decoration: underline;
-  text-align: center;
-  transition: var(--transition);
-}
-
-.job-pdf-link:hover {
-  color: var(--secondary);
-}
-
-/* PDF Preview Modal/Section */
-.pdf-preview-container {
-  background: var(--white);
-  padding: 30px;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-}
-
-.preview-actions {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 15px;
-}
-
-@media (max-width: 768px) {
-  .pdf-viewer-wrapper {
-    height: 500px !important;
   }
 }
