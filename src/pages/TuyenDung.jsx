@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Viewer, Worker } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 
@@ -13,7 +13,8 @@ const TuyenDung = () => {
             salary: 'Lên tới 20.000.000 VNĐ',
             desc: 'Triển khai bản vẽ, bóc tách khối lượng & giám sát chất lượng tại công trình.',
             pdf: '/tuyen-dung-ky-thuat.pdf',
-            zalo: 'https://zalo.me/0972524799'
+            zalo: 'https://zalo.me/0972524799',
+            reqs: ['ĐH/CĐ Xây dựng/Cơ Khí', 'Kinh nghiệm 2-3 năm', 'Thành thạo AutoCAD']
         },
         {
             id: 'ke-toan',
@@ -21,7 +22,8 @@ const TuyenDung = () => {
             salary: '7.000.000 - 12.000.000 VNĐ',
             desc: 'Thực hiện nghiệp vụ kế toán, theo dõi thu chi, báo cáo tài chính & thuế.',
             pdf: '/tuyen-dung-ke-toan.pdf',
-            zalo: 'https://zalo.me/0972524799'
+            zalo: 'https://zalo.me/0972524799',
+            reqs: ['CĐ/ĐH chuyên ngành Kế toán', 'Kinh nghiệm tối thiểu 2 năm', 'Thành thạo Excel']
         },
         {
             id: 'tho-han',
@@ -29,63 +31,84 @@ const TuyenDung = () => {
             salary: 'Từ 15.000.000 VNĐ',
             desc: 'Hàn, gia công & lắp dựng kết cấu thép nhà xưởng tiền chế.',
             pdf: '/tuyen-dung-tho-han.pdf',
-            zalo: 'https://zalo.me/0972524799'
+            zalo: 'https://zalo.me/0972524799',
+            reqs: ['Biết hàn que/MIG cơ bản', 'Có thể làm việc trên cao', 'Sức khỏe tốt']
         }
     ];
 
-    const [selectedJob, setSelectedJob] = useState(jobs[0]);
+    const [selectedJob, setSelectedJob] = useState(null);
     const defaultLayoutPluginInstance = defaultLayoutPlugin();
     const plugins = useMemo(() => [defaultLayoutPluginInstance], []);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [selectedJob]);
+
+    if (selectedJob) {
+        return (
+            <div className="recruitment-detail-view reveal">
+                <div className="detail-header-bar">
+                    <div className="container">
+                        <div className="header-bar-content">
+                            <button className="btn-back" onClick={() => setSelectedJob(null)}>
+                                <span>←</span> Quay lại danh sách
+                            </button>
+                            <h2>{selectedJob.title}</h2>
+                            <a href={selectedJob.zalo} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
+                                Ứng tuyển Zalo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="container" style={{ paddingTop: '100px', paddingBottom: '40px' }}>
+                    <div className="pdf-full-view">
+                        <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+                            <Viewer
+                                fileUrl={selectedJob.pdf}
+                                plugins={plugins}
+                            />
+                        </Worker>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="recruitment-page page-content">
             <div className="container">
-                <div className="recruitment-header">
+                <div className="recruitment-header reveal text-center">
                     <h1>Cơ Hội Nghề Nghiệp</h1>
                     <p className="section-subtitle">Gia nhập đội ngũ Việt Thành để cùng xây dựng những công trình bền vững.</p>
                 </div>
 
-                <div className="recruitment-layout">
-                    {/* Sidebar: Job List */}
-                    <div className="job-sidebar">
-                        {jobs.map((job) => (
-                            <div 
-                                key={job.id} 
-                                className={`job-sidebar-item ${selectedJob.id === job.id ? 'active' : ''}`}
-                                onClick={() => setSelectedJob(job)}
-                            >
-                                <span className="sidebar-salary">{job.salary}</span>
-                                <h4>{job.title}</h4>
-                                <p>{job.desc.substring(0, 60)}...</p>
+                <div className="recruitment-grid">
+                    {jobs.map((job) => (
+                        <div className="job-card-new reveal" key={job.id}>
+                            <div className="card-top">
+                                <span className="job-badge">Phổ biến</span>
+                                <h3>{job.title}</h3>
+                                <div className="job-salary">💰 {job.salary}</div>
                             </div>
-                        ))}
-                    </div>
+                            
+                            <div className="card-body">
+                                <p>{job.desc}</p>
+                                <ul className="brief-reqs">
+                                    {job.reqs.map((req, i) => <li key={i}>{req}</li>)}
+                                </ul>
+                            </div>
 
-                    {/* Main Content: PDF Viewer */}
-                    <div className="viewer-section">
-                        <div className="viewer-header">
-                            <h2>{selectedJob.title}</h2>
-                            <a 
-                                href={selectedJob.zalo} 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                className="btn btn-secondary btn-sm"
-                            >
-                                Ứng Tuyển Zalo
-                            </a>
-                        </div>
-                        <div className="viewer-content">
-                            <div className="pdf-viewer-wrapper" style={{ height: '800px', overflow: 'hidden' }}>
-                                <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-                                    <Viewer
-                                        key={selectedJob.id} // Force re-render viewer on job change
-                                        fileUrl={selectedJob.pdf}
-                                        plugins={plugins}
-                                    />
-                                </Worker>
+                            <div className="card-footer">
+                                <button className="btn-detail-link" onClick={() => setSelectedJob(job)}>
+                                    Xem chi tiết PDF <span>→</span>
+                                </button>
+                                <a href={job.zalo} target="_blank" rel="noopener noreferrer" className="btn btn-secondary w-100">
+                                    Ứng Tuyển Ngay
+                                </a>
                             </div>
                         </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>
