@@ -1792,3 +1792,23 @@ h6 {
 .job-pdf-link:hover {
   color: var(--secondary);
 }
+
+/* PDF Preview Modal/Section */
+.pdf-preview-container {
+  background: var(--white);
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.preview-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .pdf-viewer-wrapper {
+    height: 500px !important;
+  }
+}

@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Viewer, Worker } from '@react-pdf-viewer/core';
+import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
+
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 const TuyenDung = () => {
+    const [selectedPdf, setSelectedPdf] = useState(null);
+    const defaultLayoutPluginInstance = defaultLayoutPlugin();
+
     const jobs = [
         {
             title: 'Kỹ Thuật Công Trình',
@@ -31,48 +39,72 @@ const TuyenDung = () => {
     return (
         <div className="recruitment-page page-content">
             <div className="container">
-                <div className="recruitment-header reveal">
-                    <h1>Cơ Hội Nghề Nghiệp</h1>
-                    <p className="section-subtitle">Gia nhập đội ngũ Việt Thành để cùng xây dựng những công trình bền vững.</p>
-                </div>
-
-                <div className="recruitment-grid">
-                    {jobs.map((job, idx) => (
-                        <div className="job-card reveal" key={idx}>
-                            <div className="job-badge">Đang Tuyển Dụng</div>
-                            <h3>{job.title}</h3>
-                            <div className="job-salary">💰 {job.salary}</div>
-                            
-                            <div className="job-info-block">
-                                <h4>📋 Mô tả công việc</h4>
-                                <p>{job.desc}</p>
-                            </div>
-
-                            <div className="job-info-block">
-                                <h4>🎓 Yêu cầu</h4>
-                                <ul>
-                                    {job.reqs.map((req, i) => <li key={i}>{req}</li>)}
-                                </ul>
-                            </div>
-
-                            <div className="job-info-block">
-                                <h4>🎁 Quyền lợi</h4>
-                                <ul>
-                                    {job.benefits.map((ben, i) => <li key={i}>{ben}</li>)}
-                                </ul>
-                            </div>
-
-                            <div className="job-footer">
-                                <a href="https://zalo.me/0972524799" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                                    Ứng Tuyển Ngay
-                                </a>
-                                <a href={job.pdf} target="_blank" rel="noopener noreferrer" className="job-pdf-link">
-                                    Xem chi tiết PDF
-                                </a>
-                            </div>
+                {!selectedPdf ? (
+                    <>
+                        <div className="recruitment-header reveal">
+                            <h1>Cơ Hội Nghề Nghiệp</h1>
+                            <p className="section-subtitle">Gia nhập đội ngũ Việt Thành để cùng xây dựng những công trình bền vững.</p>
                         </div>
-                    ))}
-                </div>
+
+                        <div className="recruitment-grid">
+                            {jobs.map((job, idx) => (
+                                <div className="job-card reveal" key={idx}>
+                                    <div className="job-badge">Đang Tuyển Dụng</div>
+                                    <h3>{job.title}</h3>
+                                    <div className="job-salary">💰 {job.salary}</div>
+                                    
+                                    <div className="job-info-block">
+                                        <h4>📋 Mô tả công việc</h4>
+                                        <p>{job.desc}</p>
+                                    </div>
+
+                                    <div className="job-info-block">
+                                        <h4>🎓 Yêu cầu</h4>
+                                        <ul>
+                                            {job.reqs.map((req, i) => <li key={i}>{req}</li>)}
+                                        </ul>
+                                    </div>
+
+                                    <div className="job-info-block">
+                                        <h4>🎁 Quyền lợi</h4>
+                                        <ul>
+                                            {job.benefits.map((ben, i) => <li key={i}>{ben}</li>)}
+                                        </ul>
+                                    </div>
+
+                                    <div className="job-footer">
+                                        <a href="https://zalo.me/0972524799" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                                            Ứng Tuyển Ngay
+                                        </a>
+                                        <button 
+                                            onClick={() => setSelectedPdf(job.pdf)} 
+                                            className="job-pdf-link"
+                                            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                                        >
+                                            Xem chi tiết PDF
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </>
+                ) : (
+                    <div className="pdf-preview-container reveal">
+                        <div className="preview-actions">
+                            <button onClick={() => setSelectedPdf(null)} className="btn btn-secondary">
+                                ← Quay lại danh sách
+                            </button>
+                        </div>
+                        <div className="pdf-viewer-wrapper" style={{ height: '750px', marginTop: '20px', border: '1px solid rgba(0,0,0,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
+                            <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+                                <Viewer
+                                    fileUrl={selectedPdf}
+                                    plugins={[defaultLayoutPluginInstance]}
+                                />
+                            </Worker>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
