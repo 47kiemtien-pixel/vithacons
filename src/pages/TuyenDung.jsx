@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Viewer, Worker } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 
@@ -8,6 +8,9 @@ import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 const TuyenDung = () => {
     const [selectedPdf, setSelectedPdf] = useState(null);
     const defaultLayoutPluginInstance = defaultLayoutPlugin();
+
+    // Use useMemo to avoid re-creating the plugin instance on every render
+    const plugins = useMemo(() => [defaultLayoutPluginInstance], []);
 
     const jobs = [
         {
@@ -99,7 +102,7 @@ const TuyenDung = () => {
                             <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
                                 <Viewer
                                     fileUrl={selectedPdf}
-                                    plugins={[defaultLayoutPluginInstance]}
+                                    plugins={plugins}
                                 />
                             </Worker>
                         </div>
