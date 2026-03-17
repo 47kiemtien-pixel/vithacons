@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Viewer, Worker } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 
@@ -46,12 +46,50 @@ const TuyenDung = () => {
     ];
 
     const [selectedJob, setSelectedJob] = useState(jobs[0]);
+    const [isAutoPlay, setIsAutoPlay] = useState(true);
+    const sidebarRef = useRef(null);
+    const jobRefs = useRef({});
+
     const defaultLayoutPluginInstance = defaultLayoutPlugin();
     const plugins = useMemo(() => [defaultLayoutPluginInstance], []);
 
+    // Scroll to top on load
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    // Auto-play logic
+    useEffect(() => {
+        if (!isAutoPlay) return;
+
+        const interval = setInterval(() => {
+            setSelectedJob((prev) => {
+                const currentIndex = jobs.findIndex(j => j.id === prev.id);
+                const nextIndex = (currentIndex + 1) % jobs.length;
+                return jobs[nextIndex];
+            });
+        }, 8000); // 8 seconds per slide
+
+        return () => clearInterval(interval);
+    }, [isAutoPlay, jobs]);
+
+    // Auto-scroll sidebar when selectedJob changes
+    useEffect(() => {
+        const activeItem = jobRefs.current[selectedJob.id];
+        if (activeItem && sidebarRef.current && window.innerWidth <= 992) {
+            const container = sidebarRef.current;
+            const scrollLeft = activeItem.offsetLeft - (container.offsetWidth / 2) + (activeItem.offsetWidth / 2);
+            container.scrollTo({
+                left: scrollLeft,
+                behavior: 'smooth'
+            });
+        }
+    }, [selectedJob]);
+
+    const handleJobSelect = (job) => {
+        setIsAutoPlay(false);
+        setSelectedJob(job);
+    };
 
     return (
         <div className="recruitment-page page-content">
@@ -63,15 +101,16 @@ const TuyenDung = () => {
 
                 <div className="recruitment-layout reveal">
                     {/* Sidebar: Job List */}
-                    <div className="job-sidebar">
-                        <h3 style={{ marginBottom: '20px', fontSize: '1.2rem', color: 'var(--gray)', paddingLeft: '10px' }}>
+                    <div className="job-sidebar" ref={sidebarRef}>
+                        <h3 className="sidebar-title-hidden" style={{ marginBottom: '20px', fontSize: '1.2rem', color: 'var(--gray)', paddingLeft: '10px' }}>
                             Vị Trí Đang Tuyển ({jobs.length})
                         </h3>
                         {jobs.map((job) => (
                             <div 
                                 key={job.id} 
+                                ref={el => jobRefs.current[job.id] = el}
                                 className={`job-sidebar-item ${selectedJob.id === job.id ? 'active' : ''}`}
-                                onClick={() => setSelectedJob(job)}
+                                onClick={() => handleJobSelect(job)}
                             >
                                 <span className="sidebar-salary">💰 {job.salary}</span>
                                 <h4>{job.title}</h4>
@@ -89,9 +128,20 @@ const TuyenDung = () => {
                                     <span style={{ color: 'var(--secondary)', fontWeight: '700' }}>Thu nhập:</span> {selectedJob.salary}
                                 </p>
                             </div>
-                            <a href={selectedJob.zalo} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                                Ứng Tuyển Qua Zalo
-                            </a>
+                            <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                                {!isAutoPlay && (
+                                    <button 
+                                        className="btn btn-outline btn-sm" 
+                                        onClick={() => setIsAutoPlay(true)}
+                                        style={{ color: 'var(--gray)', borderColor: '#ddd', padding: '8px 15px', borderRadius: '50px' }}
+                                    >
+                                        ▶ Chế độ tự động
+                                    </button>
+                                )}
+                                <a href={selectedJob.zalo} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                                    Ứng Tuyển Qua Zalo
+                                </a>
+                            </div>
                         </div>
                         
                         <div className="viewer-content">
