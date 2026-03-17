@@ -45,79 +45,68 @@ const TuyenDung = () => {
         }
     ];
 
-    const [selectedJob, setSelectedJob] = useState(null);
+    const [selectedJob, setSelectedJob] = useState(jobs[0]);
     const defaultLayoutPluginInstance = defaultLayoutPlugin();
     const plugins = useMemo(() => [defaultLayoutPluginInstance], []);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [selectedJob]);
-
-    if (selectedJob) {
-        return (
-            <div className="recruitment-detail-view reveal">
-                <div className="detail-header-bar">
-                    <div className="container">
-                        <div className="header-bar-content">
-                            <button className="btn-back" onClick={() => setSelectedJob(null)}>
-                                <span>←</span> Quay lại danh sách
-                            </button>
-                            <h2>{selectedJob.title}</h2>
-                            <a href={selectedJob.zalo} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
-                                Ứng tuyển Zalo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div className="container" style={{ paddingTop: '100px', paddingBottom: '40px' }}>
-                    <div className="pdf-full-view">
-                        <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-                            <Viewer
-                                fileUrl={selectedJob.pdf}
-                                plugins={plugins}
-                            />
-                        </Worker>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+    }, []);
 
     return (
         <div className="recruitment-page page-content">
             <div className="container">
-                <div className="recruitment-header reveal text-center">
-                    <h1>Cơ Hội Nghề Nghiệp</h1>
-                    <p className="section-subtitle">Gia nhập đội ngũ Việt Thành để cùng xây dựng những công trình bền vững.</p>
+                <div className="recruitment-header reveal text-center" style={{ marginBottom: '60px' }}>
+                    <h1 style={{ fontSize: '3rem', color: 'var(--primary)', marginBottom: '15px' }}>Cơ Hội Nghề Nghiệp</h1>
+                    <p className="section-subtitle">Gia nhập đội ngũ Việt Thành để cùng xây dựng những công trình bền vững và đẳng cấp.</p>
                 </div>
 
-                <div className="recruitment-grid">
-                    {jobs.map((job) => (
-                        <div className="job-card-new reveal" key={job.id}>
-                            <div className="card-top">
-                                <span className="job-badge">Phổ biến</span>
-                                <h3>{job.title}</h3>
-                                <div className="job-salary">💰 {job.salary}</div>
+                <div className="recruitment-layout reveal">
+                    {/* Sidebar: Job List */}
+                    <div className="job-sidebar">
+                        <h3 style={{ marginBottom: '20px', fontSize: '1.2rem', color: 'var(--gray)', paddingLeft: '10px' }}>
+                            Vị Trí Đang Tuyển ({jobs.length})
+                        </h3>
+                        {jobs.map((job) => (
+                            <div 
+                                key={job.id} 
+                                className={`job-sidebar-item ${selectedJob.id === job.id ? 'active' : ''}`}
+                                onClick={() => setSelectedJob(job)}
+                            >
+                                <span className="sidebar-salary">💰 {job.salary}</span>
+                                <h4>{job.title}</h4>
+                                <p>{job.desc.substring(0, 70)}...</p>
                             </div>
-                            
-                            <div className="card-body">
-                                <p>{job.desc}</p>
-                                <ul className="brief-reqs">
-                                    {job.reqs.map((req, i) => <li key={i}>{req}</li>)}
-                                </ul>
-                            </div>
+                        ))}
+                    </div>
 
-                            <div className="card-footer">
-                                <button className="btn-detail-link" onClick={() => setSelectedJob(job)}>
-                                    Xem chi tiết PDF <span>→</span>
-                                </button>
-                                <a href={job.zalo} target="_blank" rel="noopener noreferrer" className="btn btn-secondary w-100">
-                                    Ứng Tuyển Ngay
-                                </a>
+                    {/* Main Content: Job Detail Viewer */}
+                    <div className="viewer-section">
+                        <div className="viewer-header">
+                            <div>
+                                <h2>{selectedJob.title}</h2>
+                                <p style={{ color: 'var(--gray)', fontSize: '0.9rem', marginTop: '5px' }}>
+                                    <span style={{ color: 'var(--secondary)', fontWeight: '700' }}>Thu nhập:</span> {selectedJob.salary}
+                                </p>
+                            </div>
+                            <a href={selectedJob.zalo} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                                Ứng Tuyển Qua Zalo
+                            </a>
+                        </div>
+                        
+                        <div className="viewer-content">
+                            <div className="pdf-full-view" style={{ height: '750px', borderRadius: '0' }}>
+                                <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+                                    <div key={selectedJob.id}>
+                                        <Viewer
+                                            fileUrl={selectedJob.pdf}
+                                            plugins={plugins}
+                                        />
+                                    </div>
+                                </Worker>
                             </div>
                         </div>
-                    ))}
+                    </div>
                 </div>
             </div>
         </div>
