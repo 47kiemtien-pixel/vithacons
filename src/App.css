@@ -1955,23 +1955,57 @@ h6 {
 @media (max-width: 992px) {
   .recruitment-layout {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   
   .job-sidebar {
     position: static;
     flex-direction: row;
     overflow-x: auto;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding: 10px 0 20px 0;
+    margin-bottom: 10px;
+    gap: 12px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scroll-snap-type: x mandatory;
+  }
+  
+  .job-sidebar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
   
   .job-sidebar-item {
     min-width: 280px;
+    width: 280px;
     flex-shrink: 0;
+    padding: 18px;
+    scroll-snap-align: start;
   }
 
   .job-sidebar-item:hover {
     transform: translateY(-5px);
+  }
+
+  .viewer-header {
+    padding: 15px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .viewer-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .pdf-full-view {
+    height: 500px;
+  }
+  
+  .recruitment-page .container {
+    padding: 0 15px;
+  }
+
+  .recruitment-header h1 {
+    font-size: 2.2rem !important;
   }
 }
