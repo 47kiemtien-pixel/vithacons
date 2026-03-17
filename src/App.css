@@ -1868,6 +1868,8 @@ h6 {
   grid-template-columns: 350px 1fr;
   gap: 30px;
   align-items: start;
+}
+
 .job-sidebar {
   display: flex;
   flex-direction: column;
@@ -1971,8 +1973,5 @@ h6 {
 
   .job-sidebar-item:hover {
     transform: translateY(-5px);
-  }
-}
-
   }
 }

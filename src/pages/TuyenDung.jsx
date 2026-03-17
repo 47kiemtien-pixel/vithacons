@@ -33,6 +33,15 @@ const TuyenDung = () => {
             pdf: '/tuyen-dung-tho-han.pdf',
             zalo: 'https://zalo.me/0972524799',
             reqs: ['Biết hàn que/MIG cơ bản', 'Có thể làm việc trên cao', 'Sức khỏe tốt']
+        },
+        {
+            id: 'noi-that',
+            title: 'Thiết kế nội thất',
+            salary: '15.000.000 - 20.000.000 VNĐ',
+            desc: 'Thiết kế phối cảnh 3D, triển khai bản vẽ kỹ thuật nội thất showroom, văn phòng.',
+            pdf: '/tuyen-dung-noi-that.pdf',
+            zalo: 'https://zalo.me/0972524799',
+            reqs: ['ĐH/CĐ chuyên ngành Nội thất/Kiến trúc', 'Thành thạo 3Ds Max, AutoCAD, Photoshop', 'Có gu thẩm mỹ tốt']
         }
     ];
 
